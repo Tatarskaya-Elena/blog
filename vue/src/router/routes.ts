@@ -1,0 +1,6 @@
+export enum RouteNames {
+  HOME = "HOME",
+  BLOG_HOME ="BLOG_HOME",
+  NEWS_BLOG = "NEWS_BLOG",
+  CREATE_NEWS_BLOG = "CREATE_NEWS_BLOG"
+}
