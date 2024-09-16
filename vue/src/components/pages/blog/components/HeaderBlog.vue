@@ -5,9 +5,9 @@
     </div>
     <nav class="header__nav-links">
       <RouterLink
-        :to="{ name: routeNames.BLOG_TATARSKAYA_FEDOTOVA_HOME }"
+        :to="{ name: routeNames.BLOG_HOME }"
         class="header__nav-link"
-        :class="{ 'header__nav-link--active': $route.name === routeNames.BLOG_TATARSKAYA_FEDOTOVA_HOME }"
+        :class="{ 'header__nav-link--active': $route.name === routeNames.BLOG_HOME }"
       >
         Blog
       </RouterLink>
@@ -33,9 +33,9 @@
         Contact
       </RouterLink>
       <RouterLink
-        :to="{ name: routeNames.CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA }"
+        :to="{ name: routeNames.CREATE_NEWS_BLOG }"
         class="header__nav-link"
-        :class="{ 'header__nav-link--active': $route.name === routeNames.CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA }"
+        :class="{ 'header__nav-link--active': $route.name === routeNames.CREATE_NEWS_BLOG }"
       >
         Create Post
       </RouterLink>
@@ -47,6 +47,7 @@
 import { RouteNames } from "@/router/routes";
 
 export default {
+  name: "HeaderBlog",
   computed: {
     routeNames() {
       return RouteNames

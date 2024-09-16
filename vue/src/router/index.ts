@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../components/pages/Home.vue'
-import BlogTatarskayaFedotovaHome from '../components/pages/blogTatarskayaFedotova/BlogTatarskayaFedotovaHome.vue'
-import NewsBlogTatarskayaFedotova from '../components/pages/blogTatarskayaFedotova/NewsBlogTatarskayaFedotova.vue'
-import CreateNewsBlogTatarskayaFedotova from '../components/pages/blogTatarskayaFedotova/CreateNewsBlogTatarskayaFedotova.vue'
+import BlogHome from '../components/pages/blog/BlogHome.vue'
+import NewsBlog from '../components/pages/blog/NewsBlog.vue'
+import CreateNewsBlog from '../components/pages/blog/CreateNewsBlog.vue'
 import { RouteNames } from './routes'
 
 Vue.use(VueRouter)
@@ -15,19 +15,19 @@ const routes = [
     component: HomePage
     },
   {
-    path: '/blog_Tatarskaya_Fedotova_home',
-    name: RouteNames.BLOG_TATARSKAYA_FEDOTOVA_HOME,
-    component: BlogTatarskayaFedotovaHome
+    path: '/blog_home',
+    name: RouteNames.BLOG_HOME,
+    component: BlogHome
    },
   {
-    path: '/news_blog_Tatarskaya_Fedotova',
-    name: RouteNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA,
-    component: NewsBlogTatarskayaFedotova
+    path: '/news_blog/:id',
+    name: RouteNames.NEWS_BLOG,
+    component: NewsBlog
   },
   {
-    path: '/create_news_blog_Tatarskaya_Fedotova/:id',
-    name: RouteNames.CREATE_NEWS_BLOG_TATARSKAYA_FEDOTOVA,
-    component: CreateNewsBlogTatarskayaFedotova
+    path: '/create_news_blog',
+    name: RouteNames.CREATE_NEWS_BLOG,
+    component: CreateNewsBlog
   }
 ]
     

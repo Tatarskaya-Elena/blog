@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: 'SearchTatarskayaFedotova',
+  name: 'SearchBlog',
   data () {
     return {
       value: '',

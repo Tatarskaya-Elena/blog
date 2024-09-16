@@ -1,6 +1,6 @@
 <template>
   <PageLayout>
-    <HeaderTatarskayaFedotova/>
+    <HeaderBlog/>
     <div class="block">
       <h2 class="block__text">DATE</h2>
       <input 
@@ -28,21 +28,21 @@
       />
       <button class="block__button" @click="() => createNews()">CREATE</button>
     </div>
-    <FooterTatarskayaFedotova/>
+    <FooterBlog/>
   </PageLayout>
 </template>
 
 <script>
 import PageLayout from '../../parts/PageLayout';
 import { mapGetters, mapActions } from 'vuex';
-import HeaderTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/HeaderTatarskayaFedotova.vue";
-import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
+import HeaderBlog from "@/components/pages/blog/components/HeaderBlog.vue";
+import FooterBlog from "@/components/pages/blog/components/FooterBlog.vue";
 
 export default {
-  name: 'CreateNewsBlogTatarskayaFedotova',
+  name: 'CreateNewsBlog',
   components: {
-    FooterTatarskayaFedotova,
-    HeaderTatarskayaFedotova,
+    FooterBlog,
+    HeaderBlog,
     PageLayout
   },
   data () {
@@ -54,12 +54,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("newsStoreTatarskayaFedotova", [
+    ...mapGetters("newsStore", [
       "getLastIndex"
     ])
   },
   methods: {
-    ...mapActions('newsStoreTatarskayaFedotova', [
+    ...mapActions('newsStore', [
       'addNews'
     ]),
     createNews () {

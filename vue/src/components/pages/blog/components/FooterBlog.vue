@@ -6,9 +6,9 @@
     </div>
     <nav class="footer__nav-links">
       <RouterLink
-        :to="{ name: routeNames.BLOG_TATARSKAYA_FEDOTOVA_HOME }"
+        :to="{ name: routeNames.BLOGHOME }"
         class="footer__nav-link"
-        :class="{ 'footer__nav-link--active': $route.name === routeNames.BLOG_TATARSKAYA_FEDOTOVA_HOME }"
+        :class="{ 'footer__nav-link--active': $route.name === routeNames.BLOG_HOME }"
       >
         Blog
       </RouterLink>
@@ -41,6 +41,7 @@
 import { RouteNames } from "@/router/routes";
 
 export default {
+  name: "FooterBlog",
   computed: {
     routeNames() {
       return RouteNames

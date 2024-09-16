@@ -1,71 +1,55 @@
 ﻿<template>
   <div class="second-card">
     <img 
-      :src="image" 
+      :src="card.image" 
       alt="Card Image" 
       class="second-card__image" 
     />
-    <p class="second-card__date">POSTED ON {{ date }}</p>
-    <h2 class="second-card__title">{{ title }}</h2>
-    <p class="second-card__text">{{ text }}</p>
+    <p class="second-card__date">POSTED ON {{ card.date }}</p>
+    <h2 class="second-card__title">{{ card.title }}</h2>
+    <p class="second-card__text">{{ card.text }}</p>
     <div class="second-card__buttons">
-      <ButtonTatarskayaFedotova @click="() => incrementCount('like')">
+      <ButtonBlog @click="() => incrementCount('like')">
         <img
           src="https://img.icons8.com/ios-glyphs/30/737373/like--v1.png"
           alt="like-icon"
           class="second-card__buttons__image"
         />
         {{ getButtonValues.like }}
-      </ButtonTatarskayaFedotova>
-      <ButtonTatarskayaFedotova @click="() => incrementCount('comment')">
+      </ButtonBlog>
+      <ButtonBlog @click="() => incrementCount('comment')">
         <img
           src="https://img.icons8.com/ios-filled/50/737373/speech-bubble--v1.png"
           alt="comment-icon"
           class="second-card__buttons__image"
         />
         {{ getButtonValues.comment }}
-      </ButtonTatarskayaFedotova>
-      <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA, params: { id:id } }">
-        <ButtonTatarskayaFedotova />
+      </ButtonBlog>
+      <RouterLink :to="{ name: routeNames.NEWS_BLOG, params: { id:id } }">
+        <ButtonBlog />
       </RouterLink>
     </div>
   </div>
 </template>
 
 <script>
-import ButtonTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/ButtonTatarskayaFedotova.vue";
+import ButtonBlog from "@/components/pages/blog/components/ButtonBlog.vue";
 import { mapGetters, mapActions } from "vuex";
 import { RouteNames } from "../../../../router/routes";
 
 export default {
-  name: "SecondCardTatarskayaFedotova",
+  name: "SecondCard",
   components: {
-    ButtonTatarskayaFedotova,
+    ButtonBlog,
   },
   props: {
-    id: {
-      type: Number,
-      require: 'true'
-    },
-    image: {
-      type: String,
-      default: 'image'
-    },
-    date: {
-      type: String,
-      default: ''
-    },
-    title: {
-      type: String,
-      default: ''
-    },
-    text: {
-      type: String,
-      default: ''
+    card: {
+      type: Object,
+      required: true
     }
   },
   computed: {
-    ...mapGetters("buttonTatarskayaFedotova", [
+    ...mapGetters("button", [
       "getButtonValues"
     ]),
     routeNames () {
@@ -73,7 +57,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("buttonTatarskayaFedotova", [
+    ...mapActions("button", [
       "incrementButtonValue"
     ]),
     incrementCount (index) {

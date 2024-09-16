@@ -4,29 +4,29 @@
       <h2 class="card__title">{{ currentNews['title'] }}</h2>
       <p class="card__text">{{ currentNews['text'] }}</p>
       <div class="card__buttons">
-        <ButtonTatarskayaFedotova @click="() => incrementCount('like')">
+        <ButtonBlog @click="() => incrementCount('like')">
           <img 
             src="https://img.icons8.com/ios-glyphs/30/737373/like--v1.png" 
             alt="like-icon"
             class="card__buttons__image"
           /> 
           {{ getButtonValues.like }}
-        </ButtonTatarskayaFedotova>
-        <ButtonTatarskayaFedotova @click="() => incrementCount('comment')">
+        </ButtonBlog>
+        <ButtonBlog @click="() => incrementCount('comment')">
           <img 
             src="https://img.icons8.com/ios-filled/50/737373/speech-bubble--v1.png" 
             alt="comment-icon"
             class="card__buttons__image"
           />
           {{ getButtonValues.comment }}
-        </ButtonTatarskayaFedotova>
-        <RouterLink :to="{ name: routeNames.NEWS_BLOG_TATARSKAYA_FEDOTOVA, params: { id:currentNews['id'] } }">
-          <ButtonTatarskayaFedotova />
+        </ButtonBlog>
+        <RouterLink :to="{ name: routeNames.NEWS_BLOG, params: { id:currentNews['id'] } }">
+          <ButtonBlog />
         </RouterLink>
       </div>
     </div>
     <div class="card__slide-button-container">
-      <SlideButtonTatarskayaFedotova
+      <SlideButton
         :slides="slides"
         :currentSlide="currentSlide"
         @changeSlideIndex="(index) => changeSlide(index)"
@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import ButtonTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/ButtonTatarskayaFedotova.vue";
-import SlideButtonTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/SlideButtonTatarskayaFedotova.vue";
+import ButtonBlog from "@/components/pages/blog/components/ButtonBlog.vue";
+import SlideButton from "@/components/pages/blog/components/SlideButton.vue";
 import { mapGetters, mapActions } from 'vuex';
 import { RouteNames } from "@/router/routes";
 
 export default {
-  name: 'FirstCardTatarskayaFedotova',
+  name: 'FirstCard',
   props: {
     currentNews: {
       type: Object,
@@ -56,14 +56,14 @@ export default {
     };
   },
   components: {
-    ButtonTatarskayaFedotova,
-    SlideButtonTatarskayaFedotova
+    ButtonBlog,
+    SlideButton
   },
   computed: {
-    ...mapGetters('buttonTatarskayaFedotova', [
+    ...mapGetters('button', [
       'getButtonValues'
     ]),
-    ...mapGetters('newsStoreTatarskayaFedotova', [
+    ...mapGetters('newsStore', [
       'getFirstTypeNews'
     ]),
     routeNames () {
@@ -71,7 +71,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('buttonTatarskayaFedotova', [
+    ...mapActions('button', [
       'incrementButtonValue'
     ]),
     changeSlide (index) {

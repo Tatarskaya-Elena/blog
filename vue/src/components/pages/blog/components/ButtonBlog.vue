@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'ButtonTatarskayaFedotova',
+  name: 'ButtonBlog',
   methods: {
     click () {
       this.$emit('click')

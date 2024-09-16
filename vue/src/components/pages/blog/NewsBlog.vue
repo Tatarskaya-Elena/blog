@@ -1,6 +1,6 @@
 <template>
   <PageLayout>
-    <HeaderTatarskayaFedotova/>
+    <HeaderBlog/>
     <div class="news-block">
       <p class="news-block__date">POSTED ON {{getNewsById(this.$route.params.id).date}}</p>
       <h2 class="news-block__title">{{getNewsById(this.$route.params.id).title}}</h2>
@@ -11,25 +11,25 @@
       />
       <p class="news-block__discribe"> {{getNewsById(this.$route.params.id).text}}</p>
     </div>
-    <FooterTatarskayaFedotova/>
+    <FooterBlog/>
   </PageLayout>
 </template>
 
 <script>
 import PageLayout from '../../parts/PageLayout';
-import HeaderTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/HeaderTatarskayaFedotova.vue";
-import FooterTatarskayaFedotova from "@/components/pages/blogTatarskayaFedotova/components/FooterTatarskayaFedotova.vue";
+import HeaderBlog from "@/components/pages/blog/components/HeaderBlog.vue";
+import FooterBlog from "@/components/pages/blog/components/FooterBlog.vue";
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'NewsBlogTatarskayaFedotova',
+  name: 'NewsBlog',
   components: {
-    FooterTatarskayaFedotova,
-    HeaderTatarskayaFedotova,
+    FooterBlog,
+    HeaderBlog,
     PageLayout
   },
   computed: {
-    ...mapGetters("newsStoreTatarskayaFedotova", [
+    ...mapGetters("newsStore", [
       "getNewsById"
     ])
   }
